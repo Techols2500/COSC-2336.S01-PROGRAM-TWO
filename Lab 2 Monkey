@@ -1,0 +1,27 @@
+#ifndef UB_QUEUE_H
+#define UB_QUEUE_H
+
+
+#include "UBArray.h"
+#include <string.h> 
+#include <string>  
+
+using namespace std; 
+
+class UBQueue : public UBArray <string, int>
+{
+	UBQueue();
+	~UBQueue();
+	void queue(string); 
+	string deQueue(); 
+
+private:
+		
+	UBQueue(const UBQueue &);
+	
+	UBQueue & operator = (const UBQueue &); 
+
+
+
+};
+#endif 

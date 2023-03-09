@@ -1,0 +1,56 @@
+#include "UBQueue.h" 
+
+#include <iostream> 
+
+using namespace std; 
+
+UBQueue::UBQueue()
+{
+
+}
+
+UBQueue::~UBQueue()
+{
+	DeleteAll; 
+} 
+
+void UBQueue::queue(string s)
+{
+	if (pHead)
+	{
+		WCS_Pointer <Node> pNode; 
+		pNode = WCS_Pointer <Node>(new Node((*pTail).index + 1)); 
+		numElelements++; 
+		(*pNode).pPrev = pTail; 
+		(*pTail).pNext = pNode; 
+		pTail = pNode; 
+		(*pTail).Data = s; 
+
+	}
+	else
+	{
+		WCS_Pointer <Node> pNode; 
+		pNode = WCS_Poniter <Node>(new Node(0)); 
+		numElements++; 
+		pHead = pNode; 
+		pTail = pNode; 
+		(*pHead).Data = s; 
+		(*pTail).Data = s; 
+	}
+} 
+
+string UBQueue::deQueue()
+{
+	if (pHead)
+	{
+		string s = (*pHead).Data;
+		remove((*pHead).index); 
+		return s; 
+	}
+	else
+	{
+		return "Nothing to remove "; 
+
+	}
+}
+
